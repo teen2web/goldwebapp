@@ -6,6 +6,5 @@ __pycache__/
 venv/
 node_modules/
 frontend/dist/
-backend/static/frontend/assets/
 backend/staticfiles/
 backend/db.sqlite3
