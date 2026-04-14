@@ -5,7 +5,6 @@ from rest_framework.response import Response
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 
 from .models import Post
-from .permissions import IsOwnerOrReadOnly
 from .serializers import (
     CustomTokenObtainPairSerializer,
     PostSerializer,
@@ -43,18 +42,11 @@ class RefreshView(TokenRefreshView):
 class PostViewSet(viewsets.ModelViewSet):
     serializer_class = PostSerializer
     queryset = Post.objects.select_related("author").all()
-
-    def get_permissions(self):
-        if self.action in {"list", "retrieve"}:
-            permission_classes = [permissions.AllowAny]
-        elif self.action == "create":
-            permission_classes = [permissions.IsAuthenticated]
-        else:
-            permission_classes = [permissions.IsAuthenticated, IsOwnerOrReadOnly]
-        return [permission() for permission in permission_classes]
+    permission_classes = [permissions.AllowAny]
 
     def perform_create(self, serializer):
-        serializer.save(author=self.request.user)
+        author = self.request.user if self.request.user.is_authenticated else None
+        serializer.save(author=author)
 
     def get_queryset(self) -> QuerySet[Post]:
         return Post.objects.select_related("author").all()

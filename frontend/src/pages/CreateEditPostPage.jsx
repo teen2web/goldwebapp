@@ -73,7 +73,7 @@ export default function CreateEditPostPage({ mode }) {
         {mode === "edit" ? "Refine your update" : "Publish a new insight"}
       </h1>
       <p className="mt-4 text-sm leading-7 text-white/65">
-        Craft a polished post for the public feed. Only the post owner can make changes later.
+        Craft a polished post for the public feed. This editor is open to all visitors.
       </p>
       <form className="mt-8 space-y-5" onSubmit={handleSubmit}>
         <label className="block">

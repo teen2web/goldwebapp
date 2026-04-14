@@ -9,7 +9,7 @@ export default function PostCard({ post, showActions = false, onDelete }) {
           <h3 className="mt-2 font-display text-2xl text-white">{post.title}</h3>
         </div>
         <span className="rounded-full border border-gold/30 px-3 py-1 text-xs text-gold">
-          {post.author?.username}
+          {post.author?.username || "Public"}
         </span>
       </div>
       <p className="line-clamp-4 whitespace-pre-wrap text-sm leading-7 text-white/75">

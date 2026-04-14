@@ -1,12 +1,9 @@
 import { Navigate, Route, Routes } from "react-router-dom";
 
 import Navbar from "./components/Navbar";
-import ProtectedRoute from "./components/ProtectedRoute";
 import CreateEditPostPage from "./pages/CreateEditPostPage";
 import DashboardPage from "./pages/DashboardPage";
 import HomePage from "./pages/HomePage";
-import LoginPage from "./pages/LoginPage";
-import RegisterPage from "./pages/RegisterPage";
 
 export default function App() {
   return (
@@ -16,32 +13,9 @@ export default function App() {
         <main className="flex-1 py-8">
           <Routes>
             <Route path="/" element={<HomePage />} />
-            <Route path="/login" element={<LoginPage />} />
-            <Route path="/register" element={<RegisterPage />} />
-            <Route
-              path="/dashboard"
-              element={
-                <ProtectedRoute>
-                  <DashboardPage />
-                </ProtectedRoute>
-              }
-            />
-            <Route
-              path="/posts/new"
-              element={
-                <ProtectedRoute>
-                  <CreateEditPostPage mode="create" />
-                </ProtectedRoute>
-              }
-            />
-            <Route
-              path="/posts/:postId/edit"
-              element={
-                <ProtectedRoute>
-                  <CreateEditPostPage mode="edit" />
-                </ProtectedRoute>
-              }
-            />
+            <Route path="/dashboard" element={<DashboardPage />} />
+            <Route path="/posts/new" element={<CreateEditPostPage mode="create" />} />
+            <Route path="/posts/:postId/edit" element={<CreateEditPostPage mode="edit" />} />
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         </main>

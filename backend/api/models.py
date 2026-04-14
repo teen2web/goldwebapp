@@ -16,6 +16,8 @@ class Post(models.Model):
         settings.AUTH_USER_MODEL,
         on_delete=models.CASCADE,
         related_name="posts",
+        null=True,
+        blank=True,
     )
 
     class Meta:

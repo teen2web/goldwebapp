@@ -26,18 +26,17 @@ export default function HomePage() {
         <div>
           <p className="text-sm uppercase tracking-[0.45em] text-gold/70">Gold-standard publishing</p>
           <h1 className="mt-4 max-w-3xl font-display text-5xl leading-tight text-white sm:text-6xl">
-            A secure Django and React stack styled for modern fintech storytelling.
+            A public Django and React stack styled for modern fintech storytelling.
           </h1>
           <p className="mt-6 max-w-2xl text-base leading-8 text-white/65">
-            Public posts stay readable for everyone, while authenticated creators manage their own
-            content through a JWT-protected dashboard.
+            Every visitor can browse the site and work with posts immediately, without logging in.
           </p>
         </div>
         <div className="rounded-[1.75rem] border border-white/10 bg-black/40 p-6">
           <p className="text-sm uppercase tracking-[0.3em] text-gold/70">Platform controls</p>
           <ul className="mt-5 space-y-4 text-sm leading-7 text-white/70">
-            <li>Short-lived access tokens with refresh rotation.</li>
-            <li>Django REST Framework permissions for public read and owner-only writes.</li>
+            <li>Public access across the full site without a login requirement.</li>
+            <li>Django REST Framework serves a fully open post workflow.</li>
             <li>Azure-ready static serving with Gunicorn and WhiteNoise.</li>
           </ul>
         </div>
@@ -65,7 +64,7 @@ export default function HomePage() {
           </div>
         ) : (
           <div className="rounded-3xl border border-dashed border-gold/25 bg-panel/60 p-10 text-center text-white/60">
-            No posts yet. Sign in to publish the first one.
+            No posts yet. Publish the first one.
           </div>
         )}
       </section>
